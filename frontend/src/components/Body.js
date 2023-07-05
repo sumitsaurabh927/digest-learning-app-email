@@ -8,7 +8,7 @@ const Body = () => {
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:3000/api/v1/sending-email-digest", {
+        const response = await fetch("https://emaildigestbackend.onrender.com/api/v1/sending-email-digest", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
