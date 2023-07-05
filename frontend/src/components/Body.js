@@ -1,8 +1,10 @@
 import { useState } from "react";
 // import axios from "axios";
+import { BiRightArrowAlt } from "react-icons/bi";
 
 const Body = () => {
     const [formInput, setFormInput] = useState({ notif: '', email: '' });
+    const [buttonClicked, setButtonClicked] = useState(false);
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
@@ -17,6 +19,17 @@ const Body = () => {
         console.log(response.data);
         setFormInput({ notif: '' })
     }
+
+    const handleClick = () => {
+        setButtonClicked(true);
+        // Perform your button action here
+
+        // Reset the button feedback after a certain duration
+        setTimeout(() => {
+            setButtonClicked(false);
+        }, 100);
+    };
+
     const onChangeHandler = e => {
         const value = e.target.name === 'email' ? e.target.value.trim() : e.target.value;
 
@@ -28,14 +41,26 @@ const Body = () => {
         ))
     }
     return (
-        <div className="flex items-center justify-center h-full w-full bg-blue-400">
+        <div className="flex flex-col justify-evenly h-full w-auto mx-12 my-12">
+            <h1 className="text-5xl font-bold -mt-[5rem]  ">Email Digest Playground</h1>
+            <p className="text-[1.8rem] leading-[4rem] -mt-[4rem]">Novu's digest engine allows you to aggregate multiple notifications into one  then delivers it as a single notification to the client device!</p>
+            <form className="flex flex-col space-y-8 -mt-[6rem] w-[80vw]" onSubmit={onSubmitHandler}>
+                <div className="flex flex-col space-y-6 ">
+                    <div className="flex-grow flex items-center">
+                        <label for="email" className="w-[15rem] text-[1.8rem]">Email:</label>
+                        <input className="w-[27rem] py-3 px-2 border-2" cla placeholder="Your Email here" value={formInput.email} id="email" name="email" onChange={onChangeHandler} />
+                    </div>
+                    <div className="flex-grow flex items-center">
+                        <label for="notif" className="w-[15rem] text-[1.8rem]">Notification:</label>
+                        <input className="w-[27rem] py-3 px-2 border-2" placeholder="Enter the notification text" value={formInput.notif} id="notif" name="notif" onChange={onChangeHandler} />
+                    </div>
+                </div>
 
-            <form className="flex flex-col space-y-3 " onSubmit={onSubmitHandler}>
-                <label for="email"></label>
-                <input value={formInput.email} id="email" name="email" onChange={onChangeHandler} />
-                <label for="notif"></label>
-                <input value={formInput.notif} id="notif" name="notif" onChange={onChangeHandler} />
-                <button type="submit">Send</button>
+                <button onClick={handleClick} className={`bg-black text-white hover:bg-gray-800 cursor-pointer py-2 max-w-[12rem] flex items-center justify-between text-[1.8rem] px-8 transition-colors ${buttonClicked ? "bg-gray-800 text-gray-300 scale-100" : ""
+                    }`} type="submit">
+                    Send
+                    <BiRightArrowAlt className="text-2xl" />
+                </button>
             </form>
         </div>
     )
