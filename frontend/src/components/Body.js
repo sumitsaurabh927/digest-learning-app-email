@@ -15,7 +15,7 @@ const Body = () => {
 
         })
         console.log(response.data);
-        setFormInput({ notif: '', email: '' })
+        setFormInput({ notif: '' })
     }
     const onChangeHandler = e => {
         const value = e.target.name === 'email' ? e.target.value.trim() : e.target.value;
@@ -28,13 +28,16 @@ const Body = () => {
         ))
     }
     return (
-        <form onSubmit={onSubmitHandler}>
-            <label for="email"></label>
-            <input value={formInput.email} id="email" name="email" onChange={onChangeHandler} />
-            <label for="notif"></label>
-            <input value={formInput.notif} id="notif" name="notif" onChange={onChangeHandler} />
-            <button type="submit">Send</button>
-        </form>
+        <div className="flex items-center justify-center h-full w-full bg-blue-400">
+
+            <form className="flex flex-col space-y-3 " onSubmit={onSubmitHandler}>
+                <label for="email"></label>
+                <input value={formInput.email} id="email" name="email" onChange={onChangeHandler} />
+                <label for="notif"></label>
+                <input value={formInput.notif} id="notif" name="notif" onChange={onChangeHandler} />
+                <button type="submit">Send</button>
+            </form>
+        </div>
     )
 }
 
