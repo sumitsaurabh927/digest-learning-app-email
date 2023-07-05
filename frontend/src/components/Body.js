@@ -56,7 +56,7 @@ const Body = () => {
                     </div>
                 </div>
 
-                <button onClick={handleClick} className={`bg-black text-white hover:bg-gray-800 cursor-pointer py-2 max-w-[12rem] flex items-center justify-between text-[1.8rem] px-8 transition-colors ${buttonClicked ? "bg-gray-800 text-gray-300 scale-100" : ""
+                <button onClick={handleClick} className={`bg-black text-white hover:bg-gray-800 cursor-pointer py-2 max-w-[12rem] flex items-center justify-between text-[1.8rem] px-8 transition-colors ${buttonClicked ? "bg-gray-800 text-gray-300 scale-95" : ""
                     }`} type="submit">
                     Send
                     <BiRightArrowAlt className="text-2xl" />
