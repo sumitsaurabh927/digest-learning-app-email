@@ -41,19 +41,36 @@ const Body = () => {
         ))
     }
     return (
-        <div className="flex flex-col justify-evenly h-full w-auto mx-12 my-12 ">
+        <div className="flex flex-col justify-evenly h-full w-screen mx-12 my-12 ">
             <h1 className="text-5xl font-bold -mt-[5rem]  ">Email Digest Playground</h1>
             <p className="-mt-[4rem]">Don't know how to? Start <a className="underline" href="https://docs.novu.co/platform/digest/"> here</a></p>
-            {/* <p className="  -mt-[4rem] text-[1.3rem]">Novu's digest engine allows you to aggregate multiple notifications into one  then delivers it as a single notification to the client device!</p> */}
             <form className="flex flex-col space-y-8 -mt-[6rem] w-[80vw]" onSubmit={onSubmitHandler}>
-                <div className="flex flex-col space-y-6 ">
-                    <div className="flex flex-col flex-grow  mt-[2rem]">
-                        <label for="email" className="w-[15rem] ">Email:</label>
-                        <input className="w-[27rem] py-3 border-2" cla placeholder="Your Email here" value={formInput.email} id="email" name="email" onChange={onChangeHandler} />
+                <div className="flex flex-col space-y-6">
+                    <div className="flex flex-col flex-grow mt-8">
+                        <label htmlFor="email" className="w-48">
+                            Email:
+                        </label>
+                        <input
+                            className="w-72 py-3 border-2 rounded-xl"
+                            placeholder="Your Email here"
+                            value={formInput.email}
+                            id="email"
+                            name="email"
+                            onChange={onChangeHandler}
+                        />
                     </div>
-                    <div className="flex flex-col  ">
-                        <label for="notif" className="w-[15rem] ">Notification:</label>
-                        <textarea className="w-[27rem] py-3 border-2" placeholder="Enter the notification text" value={formInput.notif} id="notif" name="notif" onChange={onChangeHandler} />
+                    <div className="flex flex-col">
+                        <label htmlFor="notif" className="w-48">
+                            Notification:
+                        </label>
+                        <textarea
+                            className="w-72 py-3 border-2 rounded-xl"
+                            placeholder="Enter the notification text"
+                            value={formInput.notif}
+                            id="notif"
+                            name="notif"
+                            onChange={onChangeHandler}
+                        />
                     </div>
                 </div>
 

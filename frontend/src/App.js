@@ -1,11 +1,10 @@
 import Body from "./components/Body";
 import "./app.css";
-import Header from "./components/Header";
 import Img from "./components/Img";
 
 function App() {
   return (
-    <div className="bg-[#303053] text-white m- h-[110vh]">
+    <div className="bg-[#303053] text-white h-screen w-screen overflow-hidden">
       {/* <Header /> */}
       <div className="flex justify-evenly">
         <div className=" mt-[3rem]">
