@@ -41,24 +41,25 @@ const Body = () => {
         ))
     }
     return (
-        <div className="flex flex-col justify-evenly h-full w-auto mx-12 my-12">
+        <div className="flex flex-col justify-evenly h-full w-auto mx-12 my-12 ">
             <h1 className="text-5xl font-bold -mt-[5rem]  ">Email Digest Playground</h1>
-            <p className="text-[1.8rem] leading-[4rem] -mt-[4rem]">Novu's digest engine allows you to aggregate multiple notifications into one  then delivers it as a single notification to the client device!</p>
+            <p className="-mt-[4rem]">Don't know how to? Start <a className="underline" href="https://docs.novu.co/platform/digest/"> here</a></p>
+            {/* <p className="  -mt-[4rem] text-[1.3rem]">Novu's digest engine allows you to aggregate multiple notifications into one  then delivers it as a single notification to the client device!</p> */}
             <form className="flex flex-col space-y-8 -mt-[6rem] w-[80vw]" onSubmit={onSubmitHandler}>
                 <div className="flex flex-col space-y-6 ">
-                    <div className="flex-grow flex items-center">
-                        <label for="email" className="w-[15rem] text-[1.8rem]">Email:</label>
-                        <input className="w-[27rem] py-3 px-2 border-2" cla placeholder="Your Email here" value={formInput.email} id="email" name="email" onChange={onChangeHandler} />
+                    <div className="flex flex-col flex-grow  mt-[2rem]">
+                        <label for="email" className="w-[15rem] ">Email:</label>
+                        <input className="w-[27rem] py-3 border-2" cla placeholder="Your Email here" value={formInput.email} id="email" name="email" onChange={onChangeHandler} />
                     </div>
-                    <div className="flex-grow flex items-center">
-                        <label for="notif" className="w-[15rem] text-[1.8rem]">Notification:</label>
-                        <input className="w-[27rem] py-3 px-2 border-2" placeholder="Enter the notification text" value={formInput.notif} id="notif" name="notif" onChange={onChangeHandler} />
+                    <div className="flex flex-col  ">
+                        <label for="notif" className="w-[15rem] ">Notification:</label>
+                        <textarea className="w-[27rem] py-3 border-2" placeholder="Enter the notification text" value={formInput.notif} id="notif" name="notif" onChange={onChangeHandler} />
                     </div>
                 </div>
 
-                <button onClick={handleClick} className={`bg-black text-white hover:bg-gray-800 cursor-pointer py-2 max-w-[12rem] flex items-center justify-between text-[1.8rem] px-8 transition-colors ${buttonClicked ? "bg-gray-800 text-gray-300 scale-95" : ""
+                <button onClick={handleClick} className={`bg-[#8741dd] text-white hover:bg-gray-800 cursor-pointer py-2 max-w-[5.5rem] flex items-center justify-between text-[1.8rem] px-8 transition-colors ${buttonClicked ? "bg-gray-800 text-gray-300 scale-95" : ""
                     }`} type="submit">
-                    Send
+
                     <BiRightArrowAlt className="text-2xl" />
                 </button>
             </form>
